@@ -1,8 +1,8 @@
-
 """
 find the most recent data based on the minimum sequence
 """
 import csv
+
 
 def get_most_recent_data(file_path):
     """
@@ -18,7 +18,9 @@ def get_most_recent_data(file_path):
 
             key = (entry["node"], entry["fordate"], entry["shape"])
 
-            current_sequence = most_recent_data.get(key, {}).get("sequence", float("inf"))
+            current_sequence = most_recent_data.get(key, {}).get(
+                "sequence", float("inf")
+            )
 
             if entry["sequence"] < current_sequence:
                 most_recent_data[key] = entry
